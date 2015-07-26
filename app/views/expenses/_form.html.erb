@@ -1,29 +1,48 @@
+
 <%= form_for(@expense) do |f| %>
-  <% if @expense.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
+    <% if @expense.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@expense.errors.count, "error") %> prohibited this expense from being saved:</h2>
 
-      <ul>
-      <% @expense.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% @expense.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+  <div class="form-group">
+    <div class="col-sm-12">
+      <%= f.label :description %>
+    </div><br>
+    <div class="col-sm-12 form-group">
+      <%= f.text_area :description, class:"form-control", rows:"2" %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
   </div>
-  <div class="field">
-    <%= f.label :amount %><br>
-    <%= f.number_field :amount %>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :amount %>
+    </div>
+    <div class="col-sm-10">
+      <%= f.number_field :amount %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <%= f.label :date %>
+    </div>
+    <div class="col-sm-10">
+      <%= f.date_select :date %>
+    </div>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <div class="col-sm-10">
+    </br>
+    </div>
+    <div class="col-sm-10">
+      <%= f.submit "submit", class:"btn btn-primary"%>
+    </div>
   </div>
 <% end %>
+

@@ -1,5 +1,12 @@
 <h1>New Expense</h1>
+<div class="container">
+	<div class="form-inline" >
+		<%= render 'form' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', expenses_path %>
+		<div class="form-group">
+			<div class="col-sm-10">
+			<%= link_to 'Back', expenses_path, class:"btn btn-primary" %>
+			</div>
+		</div>
+	</div>
+</div>

@@ -61,6 +61,12 @@ class ExpensesController < ApplicationController
     end
   end
 
+  def destroy_all
+    @expenses = Expense.all
+    @expenses.each(&:destroy)
+    redirect_to expenses_url
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_expense
